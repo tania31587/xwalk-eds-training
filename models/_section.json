@@ -33,6 +33,18 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            },
+            {
+              "name": "Accent",
+              "value": "accent"
+            },
+            {
+              "name": "Jackson Inline Highlight",
+              "value": "jackson-highlight"
             }
           ]
         }
