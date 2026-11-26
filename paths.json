@@ -1,0 +1,9 @@
+{
+  "mappings": [
+    "/content/page-styling/:/",
+    "/content/page-styling/metadata:/metadata.json"
+  ],
+  "includes": [
+    "/content/page-styling/"
+  ]
+}

@@ -38,6 +38,52 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  /* section style surfaces (used by .section.dark / .accent / .jackson-highlight) */
+  --surface-dark-color: #1f1f1f;
+  --on-surface-dark-color: #f8f8f8;
+  --link-on-dark-color: #9db2ff;
+  --surface-accent-color: #e8edff;
+  --on-surface-accent-color: #131313;
+  --highlight-border-color: #3b63fb;
+}
+
+/*
+ * Page themes
+ * The page "Theme" property (or a bulk metadata row such as /jackson/**)
+ * becomes <meta name="theme">, which decorateTemplateAndTheme() adds as a
+ * class on <body>. Each theme only overrides design tokens, so every block,
+ * the header and the footer pick it up without theme-specific selectors.
+ */
+body.corporate {
+  --background-color: #fff;
+  --light-color: #eef3fb;
+  --dark-color: #0b3d91;
+  --text-color: #1b2a41;
+  --link-color: #0057b8;
+  --link-hover-color: #003f87;
+  --surface-dark-color: #0b2545;
+  --on-surface-dark-color: #fff;
+  --link-on-dark-color: #8ec5ff;
+  --surface-accent-color: #dceaff;
+  --on-surface-accent-color: #0b2545;
+  --highlight-border-color: #0057b8;
+}
+
+body.jackson {
+  --background-color: #fffaf3;
+  --light-color: #fbeedd;
+  --dark-color: #6b2c0f;
+  --text-color: #2b1a10;
+  --link-color: #b3410e;
+  --link-hover-color: #8a2f07;
+  --heading-font-family: georgia, 'Times New Roman', serif;
+  --surface-dark-color: #3a1d0c;
+  --on-surface-dark-color: #fff4e6;
+  --link-on-dark-color: #ffb37a;
+  --surface-accent-color: #f6d7b0;
+  --on-surface-accent-color: #2b1a10;
+  --highlight-border-color: #e07a1f;
 }
 
 /* fallback fonts */
@@ -322,4 +368,45 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/*
+ * Section styles (authored via the section "Style" field in Universal Editor).
+ * They re-map the tokens locally, so links, buttons and blocks inside the
+ * section adapt, and the colors follow the active page theme.
+ */
+main .section.dark {
+  --background-color: var(--surface-dark-color);
+  --text-color: var(--on-surface-dark-color);
+  --link-color: var(--link-on-dark-color);
+  --link-hover-color: var(--on-surface-dark-color);
+  --dark-color: var(--on-surface-dark-color);
+  --light-color: var(--surface-dark-color);
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.accent {
+  --background-color: var(--surface-accent-color);
+  --text-color: var(--on-surface-accent-color);
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.jackson-highlight > div {
+  border-inline-start: 6px solid var(--highlight-border-color);
+}
+
+main .section.jackson-highlight h1,
+main .section.jackson-highlight h2,
+main .section.jackson-highlight h3 {
+  color: var(--link-color);
+  font-family: var(--heading-font-family);
+  font-style: italic;
 }
